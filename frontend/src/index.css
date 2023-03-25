@@ -13,9 +13,14 @@ flex:1;
 .img-large {
   max-width: 80%;
 }
-
+.img-thumbnail img{
+  height: 100px;
+}
 .rating span {
   color: #ffc000;
+}
+.small-container {
+  width: 400px;
 }
 .btn-primary {
   background-color: #f0c040;
