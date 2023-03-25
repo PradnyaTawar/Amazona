@@ -7,7 +7,101 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+main{
+flex:1;
 }
+.img-large {
+  max-width: 80%;
+}
+
+.rating span {
+  color: #ffc000;
+}
+.btn-primary {
+  background-color: #f0c040;
+  color: #000000;
+  border: 1px solid;
+  border-radius: 3px;
+}
+ .products{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+ }
+ .product{
+   border: 1px #404040 solid;
+   margin: 1rem;
+ }
+ .product img{
+   width: 100%;
+   max-width: 250px;
+ }
+ .product-info {
+   padding: 1rem;
+  text-decoration: none;
+ }
+  a {
+ text-decoration: none;
+}
+.site-container{
+  min-height:100vh;
+}
+.cart-black{
+  color: #000
+}
+
+.card {
+  background: #fff;
+  box-shadow: 0 8px 30px -7px #c9dff0;
+
+  border-radius: 20px;
+  border: 0;
+}
+
+.card:hover {
+  box-shadow: 5px 6px 6px 2px #86a718;
+  transform: translateY(-20px);
+  transition: 0.8s;
+}
+
+
+@media (max-width: 767px) {
+  .carousel-inner .carousel-item > div {
+      display: none;
+  }
+  .carousel-inner .carousel-item > div:first-child {
+      display: block;
+  }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+ 
+  .carousel-inner .carousel-item-end.active,
+  .carousel-inner .carousel-item-next {
+      transform: translateX(15%);
+  }
+
+  .carousel-inner .carousel-item-start.active, 
+  .carousel-inner .carousel-item-prev {
+      transform: translateX(-15%);
+  }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start { 
+  transform: translateX(0);
+}
+
+@media only screen and (max-width:450px){
+.carousel-item {
+      margin-left: 80px;
+  }
+}
+
