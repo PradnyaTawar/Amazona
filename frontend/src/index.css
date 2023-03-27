@@ -13,6 +13,7 @@ flex:1;
 
 .text-decoration-none{
   text-decoration: none;
+
 }
   
   .cart{
@@ -38,8 +39,8 @@ flex:1;
   color: #a0a0a0;
 }
 .checkout-steps > div.active {
-  border-bottom: 0.2rem solid #f08000;
-  color: #f08000;
+  border-bottom: 0.2rem solid yellowgreen;
+  color: yellowgreen;
 }
 /* sidebar */
 .navbar-brand{
@@ -60,7 +61,7 @@ flex:1;
   left:0;
 }
 .btn-primary , .btn-outline-primary {
-  background-color: #f0c040;
+  background-color: yellowgreen;
   color: #000000;
   border: 1px solid;
   border-radius: 3px;

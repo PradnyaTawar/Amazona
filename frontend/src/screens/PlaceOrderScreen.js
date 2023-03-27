@@ -12,6 +12,8 @@ import { getError } from '../utils';
 import LoadingBox from '../components/LoadingBox';
 import Axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -98,7 +100,7 @@ export default function PlaceOrderScreen() {
                                 {cart.shippingAddress.city}, {cart.shippingAddress.postalCode},
                                 {cart.shippingAddress.country}
                             </Card.Text>
-                            <Link to="/shipping">Edit</Link>
+                            <Link to="/shipping"><FontAwesomeIcon className="cart" icon={faPenToSquare} /></Link>
                         </Card.Body>
                     </Card>
 
@@ -108,7 +110,7 @@ export default function PlaceOrderScreen() {
                             <Card.Text>
                                 <strong>Method:</strong> {cart.paymentMethod}
                             </Card.Text>
-                            <Link to="/payment">Edit</Link>
+                            <Link to="/payment"><FontAwesomeIcon className="cart" icon={faPenToSquare} /></Link>
                         </Card.Body>
                     </Card>
 
@@ -125,7 +127,7 @@ export default function PlaceOrderScreen() {
                                                     alt={item.name}
                                                     className="img-fluid rounded img-thumbnail"
                                                 ></img>{' '}
-                                                <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                                                <Link style={{textDecoration: 'none' }}  to={`/product/${item.slug}`}><h3>{item.name}</h3></Link>
                                             </Col>
                                             <Col md={3}>
                                                 <span>{item.quantity}</span>
@@ -135,7 +137,7 @@ export default function PlaceOrderScreen() {
                                     </ListGroup.Item>
                                 ))}
                             </ListGroup>
-                            <Link to="/cart">Edit</Link>
+                            <Link style={{textDecoration: 'none' }}  to="/cart"><h5> <FontAwesomeIcon className="cart" icon={faPenToSquare} /></h5></Link>
                         </Card.Body>
                     </Card>
                 </Col>

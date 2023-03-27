@@ -86,9 +86,9 @@ function ProductScreen() {
                         <ListGroup className="text-decoration-none" variant="flush">
                             <ListGroup.Item>
                                 <Helmet>
-                                    <title>{product.name}</title>
+                                    <title >{product.name}</title>
                                 </Helmet>
-                                <h1>{product.name}</h1>
+                                <h1 className="text-decoration-none">{product.name}</h1>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Rating
