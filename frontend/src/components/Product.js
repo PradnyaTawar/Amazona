@@ -5,6 +5,7 @@ import Rating from './Rating';
 import { useContext } from 'react';
 import { Store } from '../Store';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 function Product(props){
     const {product} = props;
@@ -25,6 +26,7 @@ function Product(props){
       type: 'CART_ADD_ITEM',
       payload: { ...item, quantity },
     });
+    toast.success('Added to cart successfully');
   }; 
   
     return(
@@ -40,9 +42,9 @@ function Product(props){
           <Card.Text>${product.price}</Card.Text>
           {product.countInStock === 0?<Button variant="light">Out of stock</Button>
           : 
-          <button 
+          <Button 
           onClick={()=> addToCartHandler(product)}
-          className="btn-primary">Add to cart</button>}
+          className="btn-primary" variant="success">Add to cart</Button>}
          
         </Card.Body>
       </Card>

@@ -17,10 +17,12 @@ flex:1;
 }
   
   .cart{
-    color: yellowgreen;
-    
+    color: rgb(80, 203, 113);
     height: 30px;
     width:30px;
+  }
+  .cart:hover {
+    color: rgb(169, 190, 175);
   }
 .img-large {
   max-width: 80%;
@@ -35,12 +37,13 @@ flex:1;
   max-width: 400px;
 }
 .checkout-steps > div {
-  border-bottom: 0.2rem solid #a0a0a0;
-  color: #a0a0a0;
+  border-bottom: 0.2rem solid #d4caca;
+  color: #8b8989;
 }
 .checkout-steps > div.active {
-  border-bottom: 0.2rem solid yellowgreen;
-  color: yellowgreen;
+  border-bottom: 0.2rem solid rgb(95, 158, 104);
+  color: rgb(79, 152, 89);
+font-size: 18px;;
 }
 /* sidebar */
 .navbar-brand{
@@ -108,10 +111,10 @@ flex:1;
 }
 
 .bg-image {
-  /* background-image: url('1.jpg'); */
+  background-image: url('https://media.istockphoto.com/id/475438618/photo/couple-in-shopping.jpg?s=612x612&w=0&k=20&c=eQpjc0NrPkqMrh_h5y71IDwRJhPBbv9AHdtFmjJb2fE=');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 25rem;
+  height: 28rem;
 }
 
 .bg-text {

@@ -42,17 +42,17 @@ function App() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false)
   const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const { data } = await axios.get(`/api/products/categories`);
-        setCategories(data);
-      } catch (err) {
-        toast.error(getError(err));
-      }
-    };
-    fetchCategories();
-  }, []);
+  // useEffect(() => {
+  //   const fetchCategories = async () => {
+  //     try {
+  //       const { data } = await axios.get(`/api/products/categories`);
+  //       setCategories(data);
+  //     } catch (err) {
+  //       toast.error(getError(err));
+  //     }
+  //   };
+  //   fetchCategories();
+  // }, []);
   return (
     <BrowserRouter>
       <div
@@ -71,6 +71,7 @@ function App() {
           <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
               <Button
+              className="cart"
                 variant="dark"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
@@ -78,7 +79,7 @@ function App() {
               </Button>
 
               <LinkContainer to="/">
-                <Navbar.Brand>amazona</Navbar.Brand>
+                <Navbar.Brand >amazona</Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
@@ -91,7 +92,7 @@ function App() {
 
 
                   <Link to="/cart" className="nav-link">
-                  <FontAwesomeIcon className='cart ' icon={faCartShopping} />
+                  <FontAwesomeIcon className='cart '  icon={faCartShopping} />
 
                     {cart.cartItems.length > 0 && (
                       <Badge pill bg="danger">
@@ -138,7 +139,7 @@ function App() {
             <Nav.Item>
               <strong>Categories</strong>
             </Nav.Item>
-            {categories.map((category) => (
+            {/* {categories.map((category) => (
               <Nav.Item key={category}>
                 <LinkContainer
                   to={{ pathname: '/search', search: `category=${category}` }}
@@ -147,7 +148,7 @@ function App() {
                   <Nav.Link>{category}</Nav.Link>
                 </LinkContainer>
               </Nav.Item>
-            ))}
+            ))} */}
           </Nav>
         </div>
         <main>
@@ -174,8 +175,10 @@ function App() {
             </Routes>
           </Container>
         </main>
-        <footer>
-          <div className="text-center">All rights reserved</div>
+        <footer class="bg-dark text-center text-white">
+        <div class="text-center p-3" >
+    © 2023 Copyright: All rights reserved
+  </div>
         </footer>
       </div>
     </BrowserRouter >

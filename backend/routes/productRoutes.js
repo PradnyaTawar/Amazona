@@ -26,12 +26,12 @@ productRouter.get('/:id', async (req, res) => {
   }
 });
 
-productRouter.get(
-  '/categories',
-  expressAsyncHandler(async (req, res) => {
-    const categories = await Product.find().distinct('category');
-    res.send(categories);
-  })
-);
+// productRouter.get(
+//   '/categories',
+//   expressAsyncHandler(async (req, res) => {
+//     const categories = await Product.find().distinct('category');
+//     res.send(categories);
+//   })
+// );
 
 export default productRouter;
