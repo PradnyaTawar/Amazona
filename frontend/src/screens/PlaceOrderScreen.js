@@ -182,7 +182,7 @@ export default function PlaceOrderScreen() {
                                             Place Order
                                         </Button>
                                     </div>
-                                    {loading && <LoadingBox></LoadingBox>}
+                                          {loading && <LoadingBox></LoadingBox>}
                                 </ListGroup.Item>
                             </ListGroup>
                         </Card.Body>
