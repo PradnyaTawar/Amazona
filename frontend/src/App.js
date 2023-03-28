@@ -175,7 +175,7 @@ function App() {
             </Routes>
           </Container>
         </main>
-        <footer class="bg-dark text-center text-white">
+        <footer class="bg-dark text-center text-white mt-5">
         <div class="text-center p-3" >
     © 2023 Copyright: All rights reserved
   </div>
