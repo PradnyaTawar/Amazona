@@ -1,4 +1,13 @@
 # MERN Amazona
+
+# Admin: 
+username= admin@example.com
+password= 123456
+
+# User: 
+username= user@example.com
+password= user
+
 ![Screenshot (1030)](https://user-images.githubusercontent.com/78145883/228607404-e5a15606-50e2-4807-8397-ce7b4d552ea7.png)
 
 
