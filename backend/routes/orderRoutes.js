@@ -1,10 +1,25 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
-import { isAuth } from "../utils.js";
+import { isAdmin, isAuth } from "../utils.js";
 import Order from "../models/orderModel.js";
+import User from '../models/userModel.js';
+import Product from '../models/productModel.js';
+
 const orderRouter = express.Router();
+
+
+orderRouter.get(
+  '/',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find().populate('user', 'name');
+    res.send(orders);
+  })
+);
+
 orderRouter.post(
-  "/",
+  '/',
   isAuth,
   expressAsyncHandler(async (req, res) => {
     const newOrder = new Order({
@@ -17,10 +32,56 @@ orderRouter.post(
       totalPrice: req.body.totalPrice,
       user: req.user._id,
     });
+
     const order = await newOrder.save();
-    res.status(201).send({ message: "New Order Created", order });
+    res.status(201).send({ message: 'New Order Created', order });
   })
 );
+
+orderRouter.get(
+  '/summary',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.aggregate([
+      {
+        $group: {
+          _id: null,
+          numOrders: { $sum: 1 },
+          totalSales: { $sum: '$totalPrice' },
+        },
+      },
+    ]);
+    const users = await User.aggregate([
+      {
+        $group: {
+          _id: null,
+          numUsers: { $sum: 1 },
+        },
+      },
+    ]);
+    const dailyOrders = await Order.aggregate([
+      {
+        $group: {
+          _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } },
+          orders: { $sum: 1 },
+          sales: { $sum: '$totalPrice' },
+        },
+      },
+      { $sort: { _id: 1 } },
+    ]);
+    const productCategories = await Product.aggregate([
+      {
+        $group: {
+          _id: '$category',
+          count: { $sum: 1 },
+        },
+      },
+    ]);
+    res.send({ users, orders, dailyOrders, productCategories });
+  })
+);
+
 orderRouter.get(
   "/mine",
   isAuth,
@@ -63,4 +124,7 @@ orderRouter.put(
     }
   })
 );
+
+
+
 export default orderRouter;
