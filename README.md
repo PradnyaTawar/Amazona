@@ -1,10 +1,10 @@
 # MERN Amazona
 
-# Admin: 
+### Admin: 
 username= admin@example.com
 password= 123456
 
-# User: 
+### User: 
 username= user@example.com
 password= user
 
