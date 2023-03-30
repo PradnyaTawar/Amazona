@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { Store } from '../Store';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from '../Config'
 
 function Product(props){
     const {product} = props;
@@ -17,7 +18,7 @@ function Product(props){
   const addToCartHandler = async (item) => {
     const existItem = cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    const { data } = await axios.get(`${API_BASE_URL}/api/products/${item._id}`);
     if (data.countInStock < quantity) {
       window.alert('Sorry. Product is out of stock');
       return;

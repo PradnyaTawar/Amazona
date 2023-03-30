@@ -13,6 +13,7 @@ import { Store } from '../Store';
 import { getError } from '../utils';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from '../Config'
 
 function reducer(state, action) {
   switch (action.type) {
@@ -72,7 +73,7 @@ export default function OrderScreen() {
       try {
         dispatch({ type: 'PAY_REQUEST' });
         const { data } = await axios.put(
-          `/api/orders/${order._id}/pay`,
+          `${API_BASE_URL}/api/orders/${order._id}/pay`,
           details,
           {
             headers: { authorization: `Bearer ${userInfo.token}` },

@@ -35,6 +35,7 @@ import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
+import { API_BASE_URL } from './Config'
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -54,7 +55,7 @@ function App() {
   useEffect(() => {
     const fetchcategories = async () => {
       try {
-        const { data } = await axios.get(`/api/products/categories`);
+        const { data } = await axios.get(`${API_BASE_URL}/api/products/categories`);
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));

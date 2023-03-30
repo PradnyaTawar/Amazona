@@ -10,10 +10,11 @@ import CheckoutSteps from '../components/CheckoutSteps';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
 import LoadingBox from '../components/LoadingBox';
-import Axios from 'axios';
+import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { API_BASE_URL } from '../Config'
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -49,8 +50,8 @@ export default function PlaceOrderScreen() {
         try {
             dispatch({ type: 'CREATE_REQUEST' });
 
-            const { data } = await Axios.post(
-                '/api/orders',
+            const { data } = await axios.post(
+               ` ${API_BASE_URL}/api/orders`,
                 {
                     orderItems: cart.cartItems,
                     shippingAddress: cart.shippingAddress,
