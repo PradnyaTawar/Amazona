@@ -1,5 +1,5 @@
 # MERN Amazona
-https://amazona-wjut.onrender.com/
+#live: https://amazona-wjut.onrender.com/
 
 https://github.com/PradnyaTawar/Amazona
 ## Admin: 
