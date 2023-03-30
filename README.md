@@ -1,7 +1,7 @@
 # MERN Amazona
 <<<<<<< HEAD
 =======
-
+https://github.com/PradnyaTawar/Amazona
 ## Admin: 
 username= admin@example.com
 password= 123456
