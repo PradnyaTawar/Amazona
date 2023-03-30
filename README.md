@@ -1,6 +1,6 @@
 # MERN Amazona
-<<<<<<< HEAD
-=======
+https://amazona-wjut.onrender.com/
+
 https://github.com/PradnyaTawar/Amazona
 ## Admin: 
 username= admin@example.com
